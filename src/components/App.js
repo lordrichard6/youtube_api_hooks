@@ -20,17 +20,13 @@ const App = () => {
         q: term,
         part: "snippet",
         maxResults: 5,
-        type: 'video',
-        key: KEY
+        type: "video",
+        key: KEY,
       },
     });
 
     setVideos(response.data.items);
     setSelectedVideo(response.data.items[0]);
-  };
-
-  const onVideoSelect = (video) => {
-    setSelectedVideo(video);
   };
 
   return (
@@ -42,7 +38,7 @@ const App = () => {
             <VideoDetail video={selectedVideo} />
           </div>
           <div className="five wide column">
-            <VideoList onVideoSelect={onVideoSelect} videos={videos} />
+            <VideoList onVideoSelect={setSelectedVideo} videos={videos} />
           </div>
         </div>
       </div>
